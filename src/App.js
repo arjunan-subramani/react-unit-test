@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import EmployeeList from './EmployeeList';
+import Title from './Title';
 
 function App() {
+  const data = [
+    { id: 'INC001', name: 'John', role: 'CEO' },
+    { id: 'INC002', name: 'Ragavi', role: 'Director' },
+    { id: 'INC004', name: 'Peter', role: 'Junior Engineer' },
+    { id: 'INC005', name: 'Virat', role: 'Senior Engineer' },
+    { id: 'INC006', name: 'Rohit', role: 'Account Manager' },
+    { id: 'INC007', name: 'Dhoni', role: 'Operations Head' },
+    { id: 'INC008', name: 'Leo Peter', role: 'Project Manager' }
+  ];
+
+  const columns = [
+    { Header: 'Employee ID', accessor: 'id' },
+    { Header: 'Name', accessor: 'name' },
+    { Header: 'Designation', accessor: 'role' }
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title text="Employees List" />
+      <EmployeeList data={data} columns={columns} />
     </div>
   );
 }
